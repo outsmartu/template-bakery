@@ -10,7 +10,11 @@ function hello (cb) {
 
 function css(cb){
     console.log('css');
-    cb();
+    cb(new Error('shitty wizard'));
+}
+
+function sourceit(cb){
+    return gulp.src();
 }
 
 exports.def = series(hello, css);
