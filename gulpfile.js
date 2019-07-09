@@ -1,20 +1,11 @@
 'use strict';
 
 const gulp = require('gulp');
-const { series } = gulp;
+const sass = require('gulp-sass');
+sass.compiler = require('node-sass');
 
-function hello (cb) {
-    console.log('helllly');
-    cb();
-}
-
-function css(cb){
-    console.log('css');
-    cb(new Error('shitty wizard'));
-}
-
-function sourceit(cb){
-    return gulp.src();
-}
-
-exports.def = series(hello, css);
+gulp.task('sass', function () {
+    return gulp.src('frontend/styles/main.sass')
+        .pipe(sass())
+        .pipe(gulp.dest('public'));
+});
