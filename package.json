@@ -1,0 +1,22 @@
+{
+  "name": "template-bakery",
+  "version": "1.0.0",
+  "description": "Learning to create templates from scratch",
+  "main": "index.js",
+  "scripts": {
+    "test": "testit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artembell/template-bakery.git"
+  },
+  "author": "Artem Belyavskiy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/artembell/template-bakery/issues"
+  },
+  "homepage": "https://github.com/artembell/template-bakery#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
