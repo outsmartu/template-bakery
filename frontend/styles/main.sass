@@ -1,7 +1,35 @@
 @import './header';
     
+*
+    margin: 0
+    padding: 0
+
 body
-    font-size: 40px
+    font-size: 14px
+    font-family: 'Montserrat', sans-serif
+    color: $text-color
+
+a
+    text-decoration: none
+
 
 footer
-    color: magenta
+    padding: 75px 0px
+    background-color: #232122
+    position: relative
+    
+    &:before
+        content: url(images/signature)
+        position: absolute
+        right: 0
+        bottom: 0
+
+    .footer-content
+        width: 40%
+        margin: 0 auto
+        color: white
+        text-align: center
+        
+        img
+            max-width: 60px
+            margin: 0px 0px 20px
