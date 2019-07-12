@@ -14,7 +14,7 @@ gulp.task('sass', function () {
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('public/styles'));
+    .pipe(gulp.dest('public'));
 });
 
 gulp.task('clean', function(){
@@ -22,7 +22,7 @@ gulp.task('clean', function(){
 });
 
 gulp.task('assets', function(){
-    return gulp.src('frontend/assets/**', {since: gulp.lastRun})
+    return gulp.src('frontend/assets/**', {since: gulp.lastRun('assets')})
         .pipe(gulp.dest('public'));
 });
 
@@ -31,5 +31,9 @@ gulp.task('build', series(
     parallel('assets', 'sass')
 ));
 
-gulp.watch('frontend/styles/**/*.*', series('sass'));
-gulp.watch('frontend/assets/**/*.*', series('assets'));
+gulp.task('watch', function(){
+    gulp.watch('frontend/styles/**/*.*', series('sass'));
+    gulp.watch('frontend/assets/**/*.*', series('assets'));
+});
+
+gulp.task('dev', series('build', 'watch'));
