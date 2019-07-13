@@ -1,4 +1,5 @@
 @import './header';
+@import './vars';
     
 *
     margin: 0
@@ -69,7 +70,7 @@ a
                     font-size: 11.2px
                     color: $text-ingridients-color
                 hr
-                    border-top: 1px solid $hr-color
+                    border-top: 1px solid $hr-borders-color
                     margin: 0px 0px 16px
                 .money
                     position: absolute
@@ -78,6 +79,27 @@ a
                     font-size: 35px
                     color: $money-btn-color
 
+
+.benefits
+    padding: 100px 30px
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
+    grid-template-rows: 1fr 1fr
+    &__elem
+        padding: 60px
+        svg
+            fill: $wheat-color
+            margin: 0px 0px 30px
+        h4
+            margin: 0px 0px 10px
+        &:nth-child(-n + 3)
+            border-right: 1px solid $hr-borders-color
+            border-bottom: 1px solid $hr-borders-color
+        &:nth-child(n + 3)
+            border-right: 1px solid $hr-borders-color 
+        &:nth-child(3n)
+            border-right: none
+        
 
 
 footer
