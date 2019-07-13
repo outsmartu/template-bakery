@@ -79,7 +79,6 @@ a
                     font-size: 35px
                     color: $money-btn-color
 
-
 .benefits
     padding: 100px 30px
     display: grid
@@ -92,15 +91,15 @@ a
             margin: 0px 0px 30px
         h4
             margin: 0px 0px 10px
-        &:nth-child(-n + 3)
+        &:nth-child(-n + #{$benefits-cols-lg})
             border-right: 1px solid $hr-borders-color
             border-bottom: 1px solid $hr-borders-color
-        &:nth-child(n + 3)
+        &:nth-child(n + #{$benefits-cols-lg})
             border-right: 1px solid $hr-borders-color 
-        &:nth-child(3n)
+        &:nth-child(#{$benefits-cols-lg}*n)
             border-right: none
         
-
+$red-color: red
 
 footer
     padding: 75px 0px
