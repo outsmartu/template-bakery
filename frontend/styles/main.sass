@@ -41,6 +41,31 @@ a
     font-weight: 800
     transition: all 0.2s ease-in-out
 
+@mixin for-size($range)
+
+
+    $phone-upper-boundary: 768px;
+    $tablet-portrait-upper-boundary: 992px;
+    $tablet-landscape-upper-boundary: 1230px;
+    $desktop-upper-boundary: 1800px;
+
+    @if $range == phone-only 
+        @media (max-width: #{$phone-upper-boundary - 1})
+            @content
+    @else if $range == tablet-portrait-up
+        @media (min-width: $phone-upper-boundary)
+            @content
+    @else if $range == tablet-landscape-up
+        @media (min-width: $tablet-portrait-upper-boundary)
+            @content
+    @else if $range == desktop-up
+        @media (min-width: $tablet-landscape-upper-boundary)
+            @content
+    @else if $range == big-desktop-up
+        @media (min-width: $desktop-upper-boundary)
+            @content
+    
+
 .menu
     padding: 100px 0px
     background-color: white
@@ -79,27 +104,55 @@ a
                     font-size: 35px
                     color: $money-btn-color
 
-.benefits
-    padding: 100px 30px
-    display: grid
-    grid-template-columns: 1fr 1fr 1fr
-    grid-template-rows: 1fr 1fr
-    &__elem
-        padding: 60px
-        svg
-            fill: $wheat-color
-            margin: 0px 0px 30px
-        h4
-            margin: 0px 0px 10px
-        &:nth-child(-n + #{$benefits-cols-lg})
-            border-right: 1px solid $hr-borders-color
-            border-bottom: 1px solid $hr-borders-color
-        &:nth-child(n + #{$benefits-cols-lg})
-            border-right: 1px solid $hr-borders-color 
-        &:nth-child(#{$benefits-cols-lg}*n)
-            border-right: none
+.section-benefits
+    padding: 100px 0px
+    .benefits
+        margin: 0 auto
+        padding: 0px 30px
+        max-width: 1200px
+        display: grid
+        grid-template-columns: 1fr 1fr 1fr
+        grid-template-rows: 1fr 1fr
+        &__elem
+            padding: 60px
+            svg
+                fill: $wheat-color
+                margin: 0px 0px 30px
+            h4
+                margin: 0px 0px 10px
+            &:nth-child(-n + #{$benefits-cols-lg})
+                border-right: 1px solid $hr-borders-color
+                border-bottom: 1px solid $hr-borders-color
+            &:nth-child(n + #{$benefits-cols-lg})
+                border-right: 1px solid $hr-borders-color 
+            &:nth-child(#{$benefits-cols-lg}n)
+                border-right: none
+
+            @media screen /*! and (min-width: 576px)*/ and (max-width: 767px)
+                &:nth-child(n)
+                    border: none
+
+            @media screen and (max-width: 575px)
+                padding: 30px
+
+        @media screen and (min-width: 1230px)
+            max-width: 1200px
         
-$red-color: red
+        @media screen and (min-width: 992px) and (max-width: 1199px)
+            max-width: 992px
+            // color: red
+
+        @media screen and (min-width: 768px) and (max-width: 991px)
+            max-width: 720px
+            
+
+        @media screen /*! and (min-width: 576px)*/ and (max-width: 767px)
+            max-width: 540px
+            grid-template-columns: 1fr
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr
+
+        @media screen and (max-width: 575px)
+            padding: 0
 
 footer
     padding: 75px 0px
