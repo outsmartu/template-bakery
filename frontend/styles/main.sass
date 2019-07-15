@@ -33,7 +33,7 @@ a
 
 .wheat
     margin: 0px auto
-    fill: $wheat-color
+    fill: $cream-gold-color
 
 .btn
     font-size: 16.8px
@@ -75,6 +75,50 @@ a
         @media (min-width: $desktop-upper-boundary)
             @content
     
+.second-section
+    background: $cream-light-color
+    height: 460px
+    padding: 50px
+
+    .wrappery
+        display: grid
+        grid-template-columns: 1fr 1fr
+        grid-template-rows: 1fr
+        grid-column-gap: 100px
+        height: 100%
+        &:nth-children(n)
+            width: 400px
+
+        .card-food
+            width: 100%
+            // padding: 0px 30px
+            margin-right: 0
+            position: relative
+            text-align: center
+            img
+                
+                position: absolute
+                top: 0
+                right: 0
+                bottom: 0
+                left: 0
+                height: 600px
+                
+                margin: auto
+
+        .card
+            width: 350px
+            padding: 0px 30px
+            h3
+                white-space: pre-line
+                margin: 0px 0px 20px
+
+            svg
+                margin: 0px 0px 30px
+            p
+                margin: 0px 0px 50px
+
+
 
 .menu
     padding: 100px 0px
@@ -215,7 +259,7 @@ a
         &__elem
             padding: 60px
             svg
-                fill: $wheat-color
+                fill: $cream-gold-color
                 margin: 0px 0px 30px
             h4
                 margin: 0px 0px 10px
