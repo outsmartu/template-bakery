@@ -49,11 +49,19 @@ header
             cursor: pointer
             justify-content: center
             flex-direction: column
-            a
+
+            .slider__link
                 width: 40px
-                height: 2px
-                background: white
-            
+                height: 3px
+                background: black
+                transition: all 0.2s ease-in-out
+
+                &_active
+                    background: white
                 
+            &:hover
+                a
+                    background: white
+                    
                 
     
