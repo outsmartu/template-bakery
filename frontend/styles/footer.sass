@@ -1,20 +1,16 @@
 @import './vars';
     
 .footer
-    padding: 75px 0px
-    background-color: $footer-bg-color
     position: relative
+    padding: 75px 0px
+    background: $footer-bg-color
     z-index: -200
 
     &__bg
-        position: absolute
-        right: 0
-        bottom: 0
-        width: 100%
-        height: 100%
-        z-index: -100
+        @extend %bg-image
         background: url(images/signature.png) no-repeat right bottom 
         opacity: 0.05
+        
 
     &__content
         width: 40%
