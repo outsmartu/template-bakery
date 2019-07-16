@@ -1,6 +1,5 @@
     
 // make centered element to inherit?
-@import './colors';
 @import './vars';
 
 .header
@@ -39,67 +38,3 @@
         &:hover  
             background-color: #555555
             
-
-.wrapper
-    margin: 0 auto
-    // border: 1px solid red
-    @media screen and (min-width: $desktop-up)
-        max-width: $desktop-up - 30px
-    @media screen and (min-width: $tablet-landscape-up) and (max-width: $desktop-up)
-        max-width: $tablet-landscape-up - 30px
-    @media screen and (min-width: $tablet-portrait-up) and (max-width: $tablet-landscape-up)
-        max-width: $tablet-portrait-up - 30px
-    @media screen and (max-width: $tablet-portrait-up)
-        max-width: $phone-up - 30px
-    
-.first-section
-    position: relative
-    padding: 150px 0px
-    font-size: 14px
-    
-    .content
-        padding: 0px 30px
-        margin: 0 auto
-        max-width: 500px
-
-        hr
-            border: 0
-            height: 4px
-            width: 40px
-            background: $cream-gold-color
-            margin: 0px 0px 30px
-        &__subtitle
-            font-size: 18px
-            color: $cream-gold-color
-            margin: 0px 0px 8px
-        &__main-title
-            font-size: 50px
-            margin: 0px 0px 8px
-        &__text
-            font: 1.5em 'OpenSans'
-            line-height: 1em
-
-        @media screen and (min-width: $desktop-up)
-            max-width: 500px
-        @media screen and (min-width: $tablet-landscape-up) and (max-width: $desktop-up)
-            max-width: 560px
-        @media screen and (min-width: $tablet-portrait-up) and (max-width: $tablet-landscape-up)
-            max-width: 420px
-        @media screen and (min-width: $phone-up) and  (max-width: $tablet-portrait-up)
-            max-width: 540px
-        @media screen and (max-width: $phone-up)
-            // color: red
-
-    
-    &__bg
-        // border: 1px solid red
-        position: absolute
-        left: 0
-        top: 0
-        width: 100%
-        height: 100%
-        background: white url(images/signature.png) no-repeat right bottom
-        z-index: -100
-        opacity: 0.2
-            
-
