@@ -62,6 +62,25 @@ header
             &:hover
                 a
                     background: white
-                    
+
+    .arrows
+        position: absolute
+        right: 100px
+        bottom: 50px
+        display: flex
+        // width: auto
+
+        div
+            width: 64px
+            height: 64px
+            background: #444444
+            display: inline-block
+            transition: all 0.2s ease-in-out
+
+            &:hover
+                background: #af9f8c
+            
+            &:nth-child(2)
+                transform: rotate(180deg)
                 
     
