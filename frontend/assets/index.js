@@ -1,5 +1,6 @@
 let currentSlide = 1;
 let n = 3;
+let offset = 100;
 
 showSlide(currentSlide);
 
@@ -7,7 +8,7 @@ showSlide(currentSlide);
 // const slides-collection = document.body.getElementsByClassName('slide');
 
 function calcOffset(slideToShow){
-    return (slideToShow - 1) * 300;
+    return (slideToShow - 1) * offset;
 }
 
 function prev(){
@@ -27,5 +28,5 @@ function showSlide(index){
     // alert(index);
     let slides = document.body.getElementsByClassName('slides')[0];
     let currentOffset = calcOffset(index)
-    slides.style.left = -currentOffset + 'px';
+    slides.style.left = -currentOffset + '%';
 }
