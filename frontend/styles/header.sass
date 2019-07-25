@@ -16,8 +16,12 @@ header
         z-index: 100
         padding: 0px 30px
         box-sizing: border-box
+        display: flex
+        flex-direction: row
+        justify-content: space-between
 
-        ul
+        .nav-links
+            width: 40%
             height: 100%
             display: flex
             flex-direction: row
@@ -32,9 +36,25 @@ header
                     display: block
                     height: 100%
                     padding: 16px
-                    box-sizing: border-box                    
-                    
-                    
+                    box-sizing: border-box  
+
+        .nav__logo
+            width: auto
+            padding: 10px
+            img
+                width: 40px                  
+
+        .nav__socials
+            display: flex
+            flex-direction: row
+            justify-content: flex-end
+            width: 40%
+            padding: 18px 0px
+
+            li
+                margin: 0px 6px
+                display: inline
+
                 
                 
     .slider-viewport
