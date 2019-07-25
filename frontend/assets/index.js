@@ -30,3 +30,21 @@ function showSlide(index){
     let currentOffset = calcOffset(index)
     slides.style.left = -currentOffset + '%';
 }
+
+let cross = false
+function toggleHamburger(){
+    
+    if (cross){
+        svg = document.getElementsByClassName('hamburger')[0]
+        svg.childNodes[1].setAttribute('transform', 'rotate(0)')
+        svg.childNodes[5].setAttribute('transform', 'rotate(0)')
+        svg.childNodes[3].style.display = ''
+    }else{
+        svg = document.getElementsByClassName('hamburger')[0]
+        svg.childNodes[1].setAttribute('transform', 'rotate(45)')
+        svg.childNodes[5].setAttribute('transform', 'rotate(-45)')
+        svg.childNodes[3].style.display = 'none'
+
+    }
+    cross = !cross
+}
