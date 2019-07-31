@@ -55,6 +55,8 @@ function toggleHamburger() {
         // navSocials.classList.add('nav__socials_collapsed')
         // navSocials.style.display = 'flex'
 
+        
+
 
     } else {
         function makeBurger() {
