@@ -8,22 +8,23 @@ const { series, parallel } = gulp;
 sass.compiler = require('node-sass');
 
 const isDev = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
+const outputDir = 'docs'
 
 gulp.task('sass', function () {
     return gulp.src('frontend/styles/main.sass')
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('public'));
+    .pipe(gulp.dest(outputDir));
 });
 
 gulp.task('clean', function(){
-    return del('public');
+    return del(outputDir);
 });
 
 gulp.task('assets', function(){
     return gulp.src('frontend/assets/**', {since: gulp.lastRun('assets')})
-        .pipe(gulp.dest('public'));
+        .pipe(gulp.dest(outputDir));
 });
 
 gulp.task('build', series(
