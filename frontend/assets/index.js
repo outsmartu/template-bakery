@@ -53,8 +53,8 @@ function toggleHamburger() {
         // nav.classList.remove('navbar-view_expanded')
         // nav.classList.add('navbar-view_collapsed')
 
-        // links.style.display = "flex"
-        links.style.height = 'auto'
+        links.style.display = "flex"
+        // links.style.height = 'auto'
 
 
     } else {
@@ -71,8 +71,8 @@ function toggleHamburger() {
         // nav.classList.remove('navbar-view_collapsed')
         // nav.classList.add('navbar-view_expanded')
 
-        // links.style.display = "none"
-        links.style.height = 0
+        links.style.display = "none"
+        // links.style.height = 0
     }
     collapsed = !collapsed
 }

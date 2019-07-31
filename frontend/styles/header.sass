@@ -29,21 +29,21 @@ header
             // padding: 0px -30px 0px 30px
             display: flex
             // position: absolute
-            height: 0
-            overflow: hidden
+            height: auto
+            // overflow: hidden
             top: 0
             left: 0
             width: 100%
             flex-direction: row
             justify-content: space-between
-            transition-property: height
-            transition: 0.25s ease
+            // border: 1px solid red
+            // background: white
+
+            
 
             @media screen and (max-width: $desktop-up)
-                // display: none
+                display: none
                 flex-direction: column
-                // transition: $smooth-transition
-
 
             .nav-links
                 width: 100%
@@ -62,7 +62,7 @@ header
                     a
                         display: block
                         height: 100%
-                        padding: 16px
+                        padding: 16px 16px 16px 0px
                         box-sizing: border-box  
 
             .nav__socials
@@ -80,27 +80,28 @@ header
                     display: inline
 
         .logo
+            display: none
             position: absolute
-            top: 10
-            left: 600px
+            top: 10px
+            left: 50%
             
             width: auto
-            padding: 10px
-            margin: auto
+            margin: 0 auto
+            margin-left: -30px
 
             img
                 width: 40px
 
         
         .nav__hamburger
-            display: inline
-            visibility: hidden !important
+            display: none
+            // visibility: hidden !important
             width: 50px
             height: 100%
+            // margin-top: 5px
 
             @media screen and (max-width: $desktop-up)
                 display: inline
-                visibility: visible
 
             svg
                 cursor: pointer
