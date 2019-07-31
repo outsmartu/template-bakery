@@ -80,7 +80,7 @@ header
                     display: inline
 
         .logo
-            display: none
+            // display: 
             position: absolute
             top: 10px
             left: 50%
@@ -98,18 +98,20 @@ header
             // visibility: hidden !important
             width: 50px
             height: 100%
+            padding: 5px 5px 5px 0px
             // margin-top: 5px
 
             @media screen and (max-width: $desktop-up)
                 display: inline
+            
+                svg
+                    cursor: pointer
+                    overflow: visible
+                    transition: all 0.25s ease
+                    // border: 1px solid red
 
-            svg
-                cursor: pointer
-                overflow: visible
-                transition: all 0.25s ease
-
-                line
-                    transition: all 0.25s ease  
+                    line
+                        transition: all 0.25s ease  
 
     
 
