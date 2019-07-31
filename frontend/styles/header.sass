@@ -29,15 +29,21 @@ header
             // padding: 0px -30px 0px 30px
             display: flex
             // position: absolute
+            height: 0
+            overflow: hidden
             top: 0
             left: 0
             width: 100%
             flex-direction: row
             justify-content: space-between
+            transition-property: height
+            transition: 0.25s ease
 
             @media screen and (max-width: $desktop-up)
                 // display: none
                 flex-direction: column
+                // transition: $smooth-transition
+
 
             .nav-links
                 width: 100%
@@ -87,15 +93,14 @@ header
 
         
         .nav__hamburger
-            // position: absolute
-            // top: 6px
-            // left: 20px
-            display: none
+            display: inline
+            visibility: hidden !important
             width: 50px
             height: 100%
 
             @media screen and (max-width: $desktop-up)
                 display: inline
+                visibility: visible
 
             svg
                 cursor: pointer

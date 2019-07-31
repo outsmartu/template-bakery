@@ -36,43 +36,43 @@ function toggleHamburger() {
 
     let nav = document.getElementsByClassName('nav')[0]
     let navSocials = nav.getElementsByClassName('nav__socials')[0]
-    if (!collapsed) {
+
+    let links = document.getElementsByClassName('links')[0]
+    if (collapsed) {
 
         function makeCross() {
-            svg = document.getElementsByClassName('hamburger')[0]
-            svg.childNodes[1].setAttribute('transform', 'rotate(0)')
-            svg.childNodes[5].setAttribute('transform', 'rotate(0)')
-            svg.childNodes[3].style.display = ''
-        }
-
-        makeCross()
-
-
-        nav.classList.remove('navbar-view_expanded')
-        nav.classList.add('navbar-view_collapsed')
-
-        // navSocials.classList.remove('nav__socials_expanded')
-        // navSocials.classList.add('nav__socials_collapsed')
-        // navSocials.style.display = 'flex'
-
-        
-
-
-    } else {
-        function makeBurger() {
             svg = document.getElementsByClassName('hamburger')[0]
             svg.childNodes[1].setAttribute('transform', 'rotate(45)')
             svg.childNodes[5].setAttribute('transform', 'rotate(-45)')
             svg.childNodes[3].style.display = 'none'
         }
+
+        makeCross()
+
+
+        // nav.classList.remove('navbar-view_expanded')
+        // nav.classList.add('navbar-view_collapsed')
+
+        // links.style.display = "flex"
+        links.style.height = 'auto'
+
+
+    } else {
+        function makeBurger() {
+            svg = document.getElementsByClassName('hamburger')[0]
+            
+            svg.childNodes[1].setAttribute('transform', 'rotate(0)')
+            svg.childNodes[5].setAttribute('transform', 'rotate(0)')
+            svg.childNodes[3].style.display = ''
+        }
         makeBurger()
 
 
-        nav.classList.remove('navbar-view_collapsed')
-        nav.classList.add('navbar-view_expanded')
+        // nav.classList.remove('navbar-view_collapsed')
+        // nav.classList.add('navbar-view_expanded')
 
-        // navSocials.classList.remove('nav__socials_collapsed')
-        // navSocials.classList.add('nav__socials_expanded')
+        // links.style.display = "none"
+        links.style.height = 0
     }
     collapsed = !collapsed
 }
