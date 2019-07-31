@@ -75,12 +75,12 @@ function toggleHamburger() {
     collapsed = !collapsed
 }
 
-window.onscroll = function () {
-    let scrolled = window.pageYOffset || document.documentElement.scrollTop;
-    let nabvar = document.getElementsByTagName('nav')[0]
-    if (scrolled >= 200){
-        nabvar.style.top = 0
-    }else{
-        nabvar.style.top = `-${1.5 * nabvar.offsetHeight}px`
-    }
-}
+// window.onscroll = function () {
+//     let scrolled = window.pageYOffset || document.documentElement.scrollTop;
+//     let nabvar = document.getElementsByTagName('nav')[0]
+//     if (scrolled >= 200){
+//         nabvar.style.top = 0
+//     }else{
+//         nabvar.style.top = `-${1.5 * nabvar.offsetHeight}px`
+//     }
+// }

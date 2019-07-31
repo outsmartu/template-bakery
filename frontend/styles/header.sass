@@ -25,10 +25,62 @@ header
         box-shadow: 0px 0px 6px gray
         transition: $smooth-transition
 
-        // @media screen and (max-width: $desktop-up)
-        //     // height: 200px
-        //     flex-direction: column
+        .links
+            // padding: 0px -30px 0px 30px
+            display: flex
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            flex-direction: row
+            justify-content: space-between
 
+            
+
+            .nav-links
+                width: 100%
+                display: flex
+                flex-direction: row
+                justify-content: flex-start
+
+                @media screen and (max-width: $desktop-up)
+                    display: none
+
+                li
+                    display: inline-block
+                    cursor: pointer
+                    
+                    height: 100%
+                    a
+                        display: block
+                        height: 100%
+                        padding: 16px
+                        box-sizing: border-box  
+
+            .nav__socials
+                display: flex
+                flex-direction: row
+                justify-content: flex-end
+                width: 40%
+                padding: 17px 0px
+
+                @media screen and (max-width: $desktop-up)
+                    display: none
+
+                li
+                    margin: 0px 6px
+                    display: inline
+
+        .logo
+                
+            width: auto
+            padding: 10px
+            margin: auto
+
+            img
+                width: 40px
+
+        
         .nav__hamburger
             position: absolute
             top: 6px
@@ -49,71 +101,11 @@ header
                 transition: all 0.25s ease
 
                 line
-                    transition: all 0.25s ease
+                    transition: all 0.25s ease  
 
     
 
-        .nav-links
-            width: 40%
-            // height: 100%
-            display: flex
-            flex-direction: row
-            justify-content: flex-start
 
-            // @media screen and (max-width: $desktop-up)
-            //     flex-direction: column
-
-            @media screen and (max-width: $desktop-up)
-                display: none
-
-            li
-                display: inline-block
-                cursor: pointer
-
-                
-                
-                height: 100%
-                a
-                    display: block
-                    height: 100%
-                    padding: 16px
-                    box-sizing: border-box  
-
-        .nav__logo
-            
-            width: auto
-            padding: 10px
-
-            @media screen and (max-width: $desktop-up)
-                margin: auto
-
-            img
-                width: 40px                  
-
-        .nav__socials
-            display: flex
-            flex-direction: row
-            justify-content: flex-end
-            width: 40%
-            padding: 17px 0px
-
-            // @media screen and (max-width: $desktop-up)
-            //     justify-content: flex-start
-
-            @media screen and (max-width: $desktop-up)
-                display: none
-
-            li
-                margin: 0px 6px
-                display: inline
-
-        .nav__socials_expanded
-            display: flex !important
-            justify-content: flex-start !important
-
-        .nav__socials_collapsed
-            display: none !important
-                
     
     .navbar-view_expanded
         flex-direction: column
