@@ -20,7 +20,7 @@
     .description
         margin: 150px auto
         max-width: 500px
-        border: 1px solid blue
+        // border: 1px solid blue
 
         hr
             border: 0
@@ -255,54 +255,42 @@
             width: 88%
 
 .section-benefits
-    padding: 100px 0px
+
     .benefits
-        margin: 0 auto
-        padding: 0px 30px
-        max-width: 1200px
         display: grid
         grid-template-columns: 1fr 1fr 1fr
         grid-template-rows: 1fr 1fr
-        &__elem
+        margin: 100px auto
+        border: 1px solid blue
+
+        .benefit
             padding: 60px
-            svg
-                fill: $cream-gold-color
+
+            &__logo
                 margin: 0px 0px 30px
-            h4
+                fill: $cream-gold-color
+
+            &__title
                 margin: 0px 0px 10px
             
             &:nth-child(-n + #{$benefits-cols-lg})
                 border-right: 1px solid $hr-borders-color
                 border-bottom: 1px solid $hr-borders-color
+
             &:nth-child(n + #{$benefits-cols-lg})
                 border-right: 1px solid $hr-borders-color 
+
             &:nth-child(#{$benefits-cols-lg}n)
                 border-right: none
 
-            @media screen /*! and (min-width: 576px)*/ and (max-width: 767px)
+            @media screen and (max-width: 786px)
                 &:nth-child(n)
                     border: none
+                padding: 30px 0px
 
-            @media screen and (max-width: 575px)
-                padding: 30px
-
-        @media screen and (min-width: 1230px)
-            max-width: 1200px
-        
-        @media screen and (min-width: 992px) and (max-width: 1229px)
-            max-width: 960px
-            // color: red
-
-        @media screen and (min-width: 768px) and (max-width: 991px)
-            max-width: 720px
-            
-
-        @media screen /*! and (min-width: 576px)*/ and (max-width: 767px)
-            max-width: 540px
+        @media screen and (max-width: 786px)
             grid-template-columns: 1fr
             grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr
 
         @media screen and (max-width: 575px)
             padding: 0
-
-
