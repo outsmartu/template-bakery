@@ -14,7 +14,7 @@
         max-width: $phone-up - 30px
     
 .first-section
-    display: none
+    // display: none
     position: relative
     padding: 150px 0px
     font-size: 14px
@@ -252,7 +252,7 @@
             width: 88%
 
 .section-benefits
-    display: none
+    // display: none
     .benefits
         display: grid
         grid-template-columns: 1fr 1fr 1fr
@@ -388,3 +388,68 @@
                     
             
         
+.section-article
+    position: relative
+    z-index: -200
+    padding: 150px 0px
+
+    .article-and-description
+
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        align-items: center
+
+        .article
+            padding: 50px
+
+            .article-card
+                background-color: white
+                box-shadow: 0px 5px 20px grey
+
+                img
+                    width: 445px 
+
+                    @media screen and (min-width: 992px) and (max-width: 1230px)
+                        width: 345px
+
+                    // @media screen and (min-width: 786px) and (max-width: 991px)
+                    //    max-width: 240px
+
+                .text
+                    padding: 30px 30px 46px 30px
+
+                    .article-title
+                        margin-bottom: 8px
+
+                    .article-info
+                        margin-bottom: 30px
+
+                @media screen and (min-width: 786px) and (max-width: 991px)
+                       max-width: 240px
+
+        @media screen and (max-width: 785px)
+            flex-direction: column
+
+
+        .description
+            padding: 50px
+
+            hr
+                border: 0
+                height: 4px
+                width: 40px
+                background: $cream-gold-color
+                margin: 0px 0px 30px
+            &__main-title
+                font-size: 50px
+                margin: 0px 0px 8px
+            &__text
+                font: 1.5em 'OpenSans'
+                line-height: 1em
+                margin-bottom: 50px
+
+    &__bg
+        @extend %bg-image
+        background: white url(images/bg-doors.jpg) no-repeat right bottom
+        opacity: 0.2
