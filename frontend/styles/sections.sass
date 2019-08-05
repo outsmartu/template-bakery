@@ -317,7 +317,7 @@
         display: grid
         grid-template-columns: 1fr 1fr 1fr
         grid-template-rows: 1fr
-        grid-column-gap: 20px
+        grid-column-gap: 50px
 
         .testimonial
             position: relative
@@ -364,4 +364,27 @@
                     width: 60px
                     height: 60px
                     border-radius: 50%
+
+            @media screen and (max-width: 786px)
+                margin-bottom: 40px
+
+            @media screen and (min-width: 786px) and (max-width: 992px)
+                &:nth-child(1)
+                    grid-area: t1
+
+                &:nth-child(2)
+                    grid-area: t2
+
+                &:nth-child(3)
+                    grid-area: t  
+
+        @media screen and (max-width: 786px)
+            grid-template-columns: 1fr
+            // grid-template-rows: auto
+
+        @media screen and (min-width: 786px) and (max-width: 992px)
+            grid-template-columns: 1fr 1fr
+            grid-template-areas: "t1 t2" "t t"
                     
+            
+        
