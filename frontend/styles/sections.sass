@@ -403,14 +403,9 @@
                 background-color: white
                 box-shadow: 0px 5px 20px grey
                 width: 475px
+                
                 img
                     width: 100% 
-
-                    @media screen and (min-width: 992px) and (max-width: 1230px)
-                        // width: 345px
-
-                    // @media screen and (min-width: 786px) and (max-width: 991px)
-                    //    max-width: 240px
 
                 .text
                     padding: 30px 30px 46px 30px
@@ -421,12 +416,24 @@
                     .article-info
                         margin-bottom: 30px
 
+                @media screen and (min-width: 992px) and (max-width: 1230px)
+                        width: 345px
+
                 @media screen and (min-width: 786px) and (max-width: 991px)
-                       max-width: 240px
+                        width: 240px
+
+                @media screen and (max-width: 785px)
+                        width: auto  
+
+            @media screen and (min-width: 786px) and (max-width: 991px)
+                padding: 30px                     
+
+            @media screen and (max-width: 785px)
+                padding: 50px 0px
 
         @media screen and (max-width: 785px)
             flex-direction: column
-
+            padding: 0px 0px
 
         .description
             padding: 50px
@@ -438,14 +445,12 @@
                 background: $cream-gold-color
                 margin: 0px 0px 30px
             &__main-title
-                font-size: 50px
+                // font-size: 50px
                 margin: 0px 0px 8px
             &__text
-                font: 1.5em 'OpenSans'
-                line-height: 1em
                 margin-bottom: 50px
 
     &__bg
         @extend %bg-image
-        background: white url(images/bg-doors.jpg) no-repeat right bottom
+        background: white url(images/bg-doors.jpg) no-repeat center bottom
         opacity: 0.2
