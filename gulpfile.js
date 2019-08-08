@@ -6,6 +6,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const del = require('del');
 const { series, parallel } = gulp;
 sass.compiler = require('node-sass');
+const browserSync = require('browser-sync').create();
 
 const isDev = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
 const outputDir = 'docs'
@@ -28,7 +29,7 @@ gulp.task('assets', function(){
 });
 
 gulp.task('build', series(
-    'clean', 
+    'clean',
     parallel('assets', 'sass')
 ));
 
@@ -37,4 +38,13 @@ gulp.task('watch', function(){
     gulp.watch('frontend/assets/**/*.*', series('assets'));
 });
 
-gulp.task('dev', series('build', 'watch'));
+gulp.task('enable-browser-sync', function(){
+    browserSync.init({
+        server: outputDir
+    });
+
+    browserSync.watch(`${outputDir}/**/*.*`).on('change', browserSync.reload);
+});
+
+
+gulp.task('dev', series('build', parallel('watch', 'enable-browser-sync')));
