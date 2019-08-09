@@ -108,7 +108,7 @@
                 
                 margin: auto
 
-                box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.15)
+                box-shadow: $shadow
 
         .card
             margin: auto
@@ -193,22 +193,19 @@
             grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr
 
 .section-one-feature
-    height: 390px
-    background-image: url(images/bg-2.jpg)
-    background-position: 0 100%
-    background-size: cover
     position: relative
+    background: url(images/bg-2.jpg) no-repeat 0 100%
+    background-size: cover//something else
+    
     .card
+        position: relative
+        bottom: -50px
         box-sizing: border-box
-        height: 390px
         width: 500px
         background: white
-        position: absolute
-        top: 50px
-        left: 50%
-        box-shadow: 0 0 30px rgba(0, 0, 0, 0.5)
+        margin-left: 50%
+        box-shadow: $shadow
         padding: 60px
-        // z-index: 100
 
         h3
             margin: 0px 0px 30px
@@ -217,29 +214,21 @@
         p
             margin: 0px 0px 50px
 
-        // @media screen and (min-width: 1230px)
-        //     max-width: 1200px
-        
         @media screen and (min-width: 992px) and (max-width: 1229px)
             width: 800px
-            // position: relative
             left: 0
             margin-left: 18%
             margin-right: 12% 
 
-            // color: red
-
         @media screen and (min-width: 768px) and (max-width: 992px)
-            max-width: 600px
+            max-width: 560px
             left: 0
             margin-left: 18%
             margin-right: 9% 
 
-        @media screen /*! and (min-width: 576px)*/ and (max-width: 768px)
+        @media screen and (min-width: 576px) and (max-width: 768px)
             max-width: 400px
-            left: 0
-            margin-left: 18%
-            margin-right: 9% 
+            margin: 0 auto
 
         @media screen and (max-width: 575px)
             position: relative
@@ -380,9 +369,7 @@
 
         @media screen and (min-width: 786px) and (max-width: 992px)
             grid-template-columns: 1fr 1fr
-            grid-template-areas: "t1 t2" "t t"
-                    
-            
+            grid-template-areas: "t1 t2" "t t"           
         
 .section-article
     position: relative
@@ -401,7 +388,7 @@
 
             .article-card
                 background-color: white
-                box-shadow: 0px 5px 20px grey
+                box-shadow: $shadow
                 width: 475px
                 
                 img

@@ -22,7 +22,7 @@ header
         display: flex
         flex-direction: column
         justify-content: space-between
-        box-shadow: 0px 0px 6px gray
+        box-shadow: $shadow
         transition: $smooth-transition
 
         .links
@@ -107,11 +107,11 @@ header
                 svg
                     cursor: pointer
                     overflow: visible
-                    transition: all 0.25s ease
+                    transition: $smooth-transition
                     // border: 1px solid red
 
                     line
-                        transition: all 0.25s ease  
+                        transition: $smooth-transition 
 
     
 
@@ -137,7 +137,7 @@ header
             height: 100%
             left: 0
             display: flex
-            transition: all 0.25s ease
+            transition: $smooth-transition
 
             .slide
                 width: 100vw
