@@ -64,11 +64,11 @@
             @content
 
     @else if $device-name == 'tablets-portrait'
-        @media screen and (min-width: 576px) and (max-width: 767px)
+        @media screen and (min-width: 576px) and (max-width: 785px)
             @content
 
     @else if $device-name == 'tablets-landscape'
-        @media screen and (min-width: 768px) and (max-width: 991px)
+        @media screen and (min-width: 786px) and (max-width: 991px)
             @content
 
     @else if $device-name == 'laptops'
@@ -78,22 +78,16 @@
     @else if $device-name == 'desktops'
         @media screen and (min-width: 1230px)
             @content
-
-    
     
 .second-section
     background: $cream-light-color
-    // height: 460px
     padding: 50px
 
     .cards
         display: flex
         flex-direction: row
         justify-content: space-around
-
         align-content: center
-
-        // height: 100%
 
         .card-food
             flex-grow: 1
@@ -130,6 +124,55 @@
 
         @include for-size('tablets-portrait')
             flex-direction: column
+
+            
+.section-benefits
+
+    .benefits
+        display: grid
+        grid-template-columns: 1fr 1fr 1fr
+        grid-template-rows: 1fr 1fr
+        margin: 100px auto
+
+        .benefit
+            padding: 60px
+
+            &__logo
+                margin: 0px 0px 30px
+                fill: $cream-gold-color
+
+            &__title
+                margin: 0px 0px 10px
+            
+            &:nth-child(-n + #{$benefits-cols-lg})
+                border-right: 1px solid $hr-borders-color
+                border-bottom: 1px solid $hr-borders-color
+
+            &:nth-child(n + #{$benefits-cols-lg})
+                border-right: 1px solid $hr-borders-color 
+
+            &:nth-child(#{$benefits-cols-lg}n)
+                border-right: none
+
+            @include for-size('tablets-portrait')
+                &:nth-child(n)
+                    border: none
+                padding: 30px 0px
+
+            @include for-size('phones')
+                &:nth-child(n)
+                    border: none
+                padding: 30px 0px
+
+        @include for-size('tablets-portrait')
+            grid-template-columns: 1fr
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr
+
+        @include for-size('phones')
+            grid-template-columns: 1fr
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr
+            padding: 0
+
 
 .section-menu
     // display: none
@@ -238,47 +281,6 @@
             margin: 0 auto
             padding: 30px
 
-            
-.section-benefits
-    // display: none
-    .benefits
-        display: grid
-        grid-template-columns: 1fr 1fr 1fr
-        grid-template-rows: 1fr 1fr
-        margin: 100px auto
-        // border: 1px solid blue
-
-        .benefit
-            padding: 60px
-
-            &__logo
-                margin: 0px 0px 30px
-                fill: $cream-gold-color
-
-            &__title
-                margin: 0px 0px 10px
-            
-            &:nth-child(-n + #{$benefits-cols-lg})
-                border-right: 1px solid $hr-borders-color
-                border-bottom: 1px solid $hr-borders-color
-
-            &:nth-child(n + #{$benefits-cols-lg})
-                border-right: 1px solid $hr-borders-color 
-
-            &:nth-child(#{$benefits-cols-lg}n)
-                border-right: none
-
-            @media screen and (max-width: 786px)
-                &:nth-child(n)
-                    border: none
-                padding: 30px 0px
-
-        @media screen and (max-width: 786px)
-            grid-template-columns: 1fr
-            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr
-
-        @media screen and (max-width: 575px)
-            padding: 0
 
 .section-testimonials
     padding: 80px 0px 0px
