@@ -55,29 +55,31 @@
         opacity: 0.2
             
 
-@mixin for-size($range)
+@mixin for-size($device-name)
 
+    $phones-upper: 576px;
 
-    $phone-upper-boundary: 768px;
-    $tablet-portrait-upper-boundary: 992px;
-    $tablet-landscape-upper-boundary: 1230px;
-    $desktop-upper-boundary: 1800px;
+    @if $device-name == 'phones'
+        @media screen and (max-width: 575px)
+            @content
 
-    @if $range == phone-only 
-        @media (max-width: #{$phone-upper-boundary - 1})
+    @else if $device-name == 'tablets-portrait'
+        @media screen and (min-width: 576px) and (max-width: 767px)
             @content
-    @else if $range == tablet-portrait-up
-        @media (min-width: $phone-upper-boundary)
+
+    @else if $device-name == 'tablets-landscape'
+        @media screen and (min-width: 768px) and (max-width: 991px)
             @content
-    @else if $range == tablet-landscape-up
-        @media (min-width: $tablet-portrait-upper-boundary)
+
+    @else if $device-name == 'laptops'
+        @media screen and (min-width: 992px) and (max-width: 1229px)
             @content
-    @else if $range == desktop-up
-        @media (min-width: $tablet-landscape-upper-boundary)
+
+    @else if $device-name == 'desktops'
+        @media screen and (min-width: 1230px)
             @content
-    @else if $range == big-desktop-up
-        @media (min-width: $desktop-upper-boundary)
-            @content
+
+    
     
 .second-section
     background: $cream-light-color
@@ -200,41 +202,32 @@
     .card
         position: relative
         bottom: -50px
-        box-sizing: border-box
         width: 500px
-        background: white
         margin-left: 50%
-        box-shadow: $shadow
         padding: 60px
+        box-shadow: $shadow
+        background: white
 
-        h3
+        &__title
             margin: 0px 0px 30px
             white-space: pre-line
 
-        p
+        &__text
             margin: 0px 0px 50px
 
         @media screen and (min-width: 992px) and (max-width: 1229px)
             width: 800px
-            left: 0
             margin-left: 18%
             margin-right: 12% 
 
-        @media screen and (min-width: 768px) and (max-width: 992px)
+        @media screen and (min-width: 768px) and (max-width: 991px)
             max-width: 560px
-            left: 0
             margin-left: 18%
             margin-right: 9% 
 
-        @media screen and (min-width: 576px) and (max-width: 768px)
-            max-width: 400px
+        @media screen and (max-width: 767px)
+            width: auto
             margin: 0 auto
-
-        @media screen and (max-width: 575px)
-            position: relative
-            left: 0
-            margin: 0 auto
-            width: 88%
 
 .section-benefits
     // display: none
