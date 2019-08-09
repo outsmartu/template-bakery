@@ -215,20 +215,25 @@
         &__text
             margin: 0px 0px 50px
 
-        @media screen and (min-width: 992px) and (max-width: 1229px)
+        @include for-size('laptops')
             width: 800px
             margin-left: 18%
             margin-right: 12% 
 
-        @media screen and (min-width: 768px) and (max-width: 991px)
+        @include for-size('tablets-landscape')
             max-width: 560px
             margin-left: 18%
             margin-right: 9% 
 
-        @media screen and (max-width: 767px)
+        @include for-size('tablets-portrait')
             width: auto
             margin: 0 auto
 
+        @include for-size('phones')
+            width: auto
+            margin: 0 auto
+
+            
 .section-benefits
     // display: none
     .benefits
