@@ -2,7 +2,7 @@
 
 .wrapper
     margin: 0 auto
-    // border: 1px solid red
+    border: 1px solid red
     padding: 0px 30px
     @media screen and (min-width: $desktop-up)
         max-width: $desktop-up - 30px
@@ -83,49 +83,53 @@
     
 .second-section
     background: $cream-light-color
-    height: 460px
+    // height: 460px
     padding: 50px
 
-    .wrappery
-        display: grid
-        grid-template-columns: 1fr 1fr
-        grid-template-rows: 1fr
-        grid-column-gap: 60px
-        height: 100%
-        overflow: hidden
-        &:nth-children(n)
-            width: 400px
+    .cards
+        display: flex
+        flex-direction: row
+        justify-content: space-around
+
+        align-content: center
+
+        // height: 100%
 
         .card-food
+            flex-grow: 1
+            border: 1px solid green
             width: 100%
             position: relative
 
-            img
+            &__img
+                position: relative
+                width: 100%
+                max-width: 500px
                 
-                position: absolute
-                top: 0
-                right: 0
-                bottom: 0
-                height: 660px
                 
                 margin: auto
 
                 box-shadow: $shadow
 
-        .card
+        .card-text
+            flex-grow: 1
+            border: 1px solid blue
             margin: auto
-            // width: 400px
-            padding: 0px 50px
-            h3
+            width: 100%
+            padding: 50px 50px
+            
+            &__title
                 white-space: pre-line
                 margin: 0px 0px 20px
 
-            svg
+            &__divider
                 margin: 0px 0px 30px
-            p
+
+            &__description
                 margin: 0px 0px 50px
 
-
+        @include for-size('tablets-portrait')
+            flex-direction: column
 
 .section-menu
     // display: none
