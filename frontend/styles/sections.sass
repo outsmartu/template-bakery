@@ -81,13 +81,14 @@
     
 .second-section
     background: $cream-light-color
-    padding: 50px
+    padding: 50px 0px
 
     .cards
         display: flex
         flex-direction: row
         justify-content: space-around
         align-content: center
+        width: 100%
 
         .card-food
             flex-grow: 1
@@ -122,7 +123,18 @@
             &__description
                 margin: 0px 0px 50px
 
+            @include for-size('tablets-portrait')
+                flex-direction: column
+                padding: 50px 0px
+
+            @include for-size('phones')
+                flex-direction: column
+                padding: 50px 0px
+
         @include for-size('tablets-portrait')
+            flex-direction: column
+
+        @include for-size('phones')
             flex-direction: column
 
             
