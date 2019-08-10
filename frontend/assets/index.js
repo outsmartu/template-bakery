@@ -26,7 +26,7 @@ function showSlide(index) {
 
 let collapsed = true
 function toggleHamburger() {
-    let links = document.getElementsByClassName('links')[0]
+    let links = document.getElementsByClassName('navbar__links')[0]
     if (collapsed) {
         function expandMenu() {
             function makeCross() {
@@ -38,6 +38,7 @@ function toggleHamburger() {
 
             makeCross()
             links.style.display = "flex"
+            // links.style.height = 0
         }
 
         expandMenu()
@@ -53,6 +54,7 @@ function toggleHamburger() {
 
             makeBurger()
             links.style.display = "none"
+            // links.style.height = "auto"
         }
 
         collapseMenu()

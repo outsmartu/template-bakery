@@ -6,12 +6,9 @@
 header
     position: relative
     width: 100%
-    // nav_expanded
 
-
-    .nav
+    .navbar
         width: 100%
-        // height: 50px
         background: white
         position: fixed
         left: 0
@@ -25,19 +22,15 @@ header
         box-shadow: $shadow
         transition: $smooth-transition
 
-        .links
-            // padding: 0px -30px 0px 30px
+        &__links
             display: flex
-            // position: absolute
             height: auto
-            // overflow: hidden
             top: 0
             left: 0
             width: 100%
             flex-direction: row
             justify-content: space-between
-            // border: 1px solid red
-            // background: white
+            transition: $smooth-transition
 
             
 
@@ -45,7 +38,7 @@ header
                 display: none
                 flex-direction: column
 
-            .nav-links
+            .links-local
                 width: 100%
                 display: flex
                 flex-direction: row
@@ -54,18 +47,17 @@ header
                 @media screen and (max-width: $desktop-up)
                     flex-direction: column
 
-                li
+                &__item
                     display: inline-block
                     cursor: pointer
-                    
                     height: 100%
+
                     a
                         display: block
                         height: 100%
                         padding: 16px 16px 16px 0px
-                        box-sizing: border-box  
 
-            .nav__socials
+            .links-social
                 display: flex
                 flex-direction: row
                 justify-content: flex-end
@@ -76,17 +68,18 @@ header
                 @media screen and (max-width: $desktop-up)
                     justify-content: flex-start
 
-                li
+                &__item
                     vertical-align: middle
                     margin: 0px 6px
                     display: inline
 
-        .logo
-            // display: 
+                    .icon
+                        fill: #555555
+
+        &__logo
             position: absolute
             top: 10px
             left: 50%
-            
             width: auto
             margin: 0 auto
             margin-left: -30px
@@ -94,36 +87,24 @@ header
             img
                 width: 40px
 
-        
-        .nav__hamburger
+        &__hamburger
             display: none
-            // visibility: hidden !important
             width: 50px
             height: 100%
             padding: 5px 5px 5px 0px
-            // margin-top: 5px
 
             @media screen and (max-width: $desktop-up)
                 display: inline
             
-                svg
+                .icon
                     cursor: pointer
                     overflow: visible
                     transition: $smooth-transition
-                    // border: 1px solid red
 
                     line
                         transition: $smooth-transition 
 
-    
 
-
-    
-    // .navbar-view_expanded
-    //     flex-direction: column
-
-    // .navbar-view_collapsed
-    //     flex-direction: row
 
     .slider-viewport
 
