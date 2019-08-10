@@ -71,11 +71,13 @@ header
                 justify-content: flex-end
                 width: 40%
                 padding: 17px 0px
+                
 
                 @media screen and (max-width: $desktop-up)
                     justify-content: flex-start
 
                 li
+                    vertical-align: middle
                     margin: 0px 6px
                     display: inline
 
@@ -142,6 +144,9 @@ header
             .slide
                 width: 100vw
                 height: 100vh
+                display: flex
+                flex-direction: column
+                justify-content: center
             
                 &:nth-child(1)
                     background: url(images/bg-1.jpg)
@@ -152,6 +157,17 @@ header
 
                 &:nth-child(3)
                     background: url(images/bg-3.jpg)
+
+                .header__template
+                    margin: 0px 0px 8px
+                    text-align: center
+                    color: $text-color
+
+                .header__template-name
+                    margin: 0px 0px 50px
+                    text-align: center
+                    color: #222222
+                    text-transform: uppercase
     .header
         position: relative
         height: 100vh
@@ -164,16 +180,7 @@ header
 
         overflow: hidden
         
-        &__template
-            margin: 0px 0px 8px
-            text-align: center
-            color: $text-color
-
-        &__template-name
-            margin: 0px 0px 50px
-            text-align: center
-            color: #222222
-            text-transform: uppercase
+        
         
     .slider
         padding: 0
