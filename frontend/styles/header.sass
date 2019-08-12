@@ -1,7 +1,29 @@
     
 // make centered element to inherit?
 @import './vars';
+@mixin for-size($device-name)
 
+    $phones-upper: 576px;
+
+    @if $device-name == 'phones'
+        @media screen and (max-width: 575px)
+            @content
+
+    @else if $device-name == 'tablets-portrait'
+        @media screen and (min-width: 576px) and (max-width: 785px)
+            @content
+
+    @else if $device-name == 'tablets-landscape'
+        @media screen and (min-width: 786px) and (max-width: 991px)
+            @content
+
+    @else if $device-name == 'laptops'
+        @media screen and (min-width: 992px) and (max-width: 1229px)
+            @content
+
+    @else if $device-name == 'desktops'
+        @media screen and (min-width: 1230px)
+            @content
 
 header
     position: relative
@@ -9,7 +31,7 @@ header
 
     .navbar
         width: 100%
-        background: white
+        background: white url(images/header-logo.png) center 10px/40px no-repeat scroll
         position: fixed
         left: 0
         top: 0
@@ -21,6 +43,7 @@ header
         justify-content: space-between
         box-shadow: $shadow
         transition: $smooth-transition
+        // height: 50px
 
         &__links
             display: flex
@@ -123,32 +146,38 @@ header
             transition: $smooth-transition
 
             .slide
-                width: 100vw
-                height: 100vh
                 display: flex
                 flex-direction: column
                 justify-content: center
+                width: 100vw
+                height: 100vh
+
+                @mixin header-bg-stretch($bg-color, $bg-image)
+                    background: $bg-color $bg-image center center/100% auto no-repeat scroll
             
                 &:nth-child(1)
-                    background: url(images/bg-1.jpg)
+                    @include header-bg-stretch(#C6C8D5, url(images/bg-1.jpg))
 
                 &:nth-child(2)
-                    background: url(images/bg-2.jpg)
-                    // background-size: cover
+                    @include header-bg-stretch(#9C8176, url(images/bg-2.jpg))
+
+                    .header__template, .header__template-name
+                        color: white
 
                 &:nth-child(3)
-                    background: url(images/bg-3.jpg)
+                    @include header-bg-stretch(#6D7783, url(images/bg-3.jpg))
+
+                    .header__template, .header__template-name
+                        color: white
 
                 .header__template
-                    margin: 0px 0px 8px
+                    margin: 0px 0px 18px
                     text-align: center
                     color: $text-color
 
                 .header__template-name
                     margin: 0px 0px 50px
-                    text-align: center
                     color: #222222
-                    text-transform: uppercase
     .header
         position: relative
         height: 100vh
@@ -198,8 +227,9 @@ header
 
     .arrows
         position: absolute
-        right: 100px
-        bottom: 50px
+        right: 30px
+        bottom: -32px
+        z-index: 500
         display: flex
         cursor: pointer
         // width: auto
@@ -217,5 +247,7 @@ header
             
             &:nth-child(2)
                 transform: rotate(180deg)
-                
+
+        @include for-size('phones')
+            display: none
     
