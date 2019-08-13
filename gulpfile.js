@@ -6,7 +6,7 @@ const gulp = require('gulp'),
     del = require('del'),
     { series, parallel } = gulp,
     browserSync = require('browser-sync').create(),
-    uglify = require('gulp-uglify'),
+    uglify = require('gulp-uglify-es').default,
     cleanCSS = require('gulp-clean-css'),
     imagemin = require('gulp-imagemin')
 
