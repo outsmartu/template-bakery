@@ -6,14 +6,34 @@
     margin: 0
     padding: 0
     // outline: none
+    user-select: none
+    outline: none
     box-sizing: border-box
     
     // border: 1px solid red
+
+    &::selection
+        background: transparent
+
+    &:focus
+        outline: none
 
 body
     font-size: 14px
     font-family: 'Montserrat', sans-serif
     color: $text-color
+
+    @include for-size('laptops')
+        font-size: 13px
+
+    @include for-size('tablets-portrait')
+        font-size: 12px
+
+    @include for-size('tablets-landscape')
+        font-size: 11px
+
+    @include for-size('phones')
+        font-size: 10px
 
 h1, h2, h3, h4, h5, h6
     text-align: center
@@ -28,7 +48,7 @@ h1
 //  Main title
 h2
     text-align: left
-    font-size: 40px
+    font-size: 3em
     font-weight: 700
 
     
@@ -40,27 +60,23 @@ h3
     font-weight: 700
     color: $h3-color
 
-    @include for-size('phones')
-        font-size: 25px
-
 
 h4
     text-align: left
-    font-size: 18px
+    font-size: 1.5em
     font-weight: bold
     color: $h4-color
 
 //  subtitles
 h6
     text-align: left
-    font-size: 18px
+    font-size: 1.2em
     font-weight: 400
+
 p
     font-size: 14px
     font-weight: 400
     line-height: 1.5em
-    // font-family: 'OpenSans'
-
 
 a
     text-decoration: none !important

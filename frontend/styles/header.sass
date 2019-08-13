@@ -35,7 +35,7 @@ header
         position: fixed
         left: 0
         top: 0
-        z-index: 100
+        z-index: 500
         padding: 0px 30px
         box-sizing: border-box
         display: flex
@@ -152,17 +152,11 @@ header
                 width: 100vw
                 height: 100vh
 
-                // .wheat
-                //     margin: 0px 0px 20px
-
                 @mixin header-bg-stretch($bg-color, $bg-image)
-                    background: $bg-color $bg-image center center/100% auto no-repeat scroll
+                    background: $bg-color $bg-image center center/cover no-repeat scroll
             
-                &:nth-child(1)
-                    @include header-bg-stretch(#C6C8D5, url(images/bg-1.jpg))
-
-                &:nth-child(2)
-                    @include header-bg-stretch(#9C8176, url(images/bg-2.jpg))
+                &:first-child
+                    @include header-bg-stretch(#C6C8D5, url(images/bg-2.jpg))
 
                     .header__template, .header__template-name
                         color: white
@@ -170,7 +164,10 @@ header
                     .wheat
                         fill:  white
 
-                &:nth-child(3)
+                &:nth-child(2)
+                    @include header-bg-stretch(#9C8176, url(images/bg-1.jpg))
+
+                &:last-child
                     @include header-bg-stretch(#6D7783, url(images/bg-3.jpg))
 
                     .header__template, .header__template-name
@@ -238,7 +235,7 @@ header
         position: absolute
         right: 30px
         bottom: -32px
-        z-index: 500
+        z-index: 400
         display: flex
         cursor: pointer
         // width: auto
