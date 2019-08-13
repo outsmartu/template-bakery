@@ -27,6 +27,28 @@
         @media screen and (min-width: $laptops_upper)
             @content
 
+@mixin for-size-less($device-name)
+    $phones_upper: 576px
+    $tablets_portrait_upper: 786px
+    $tablets_landscape_upper: 992px
+    $laptops_upper: 1230px
+
+    @if $device-name == 'phones'
+        @media screen and (max-width: $phones_upper - 1)
+            @content
+
+    @else if $device-name == 'tablets-portrait'
+        @media screen and (max-width: $tablets_portrait_upper - 1)
+            @content
+
+    @else if $device-name == 'tablets-landscape'
+        @media screen and (max-width: $tablets_landscape_upper - 1)
+            @content
+
+    @else if $device-name == 'laptops'
+        @media screen and (max-width: $laptops_upper - 1)
+            @content
+
 .wrapper
     margin: 0 auto
     // border: 1px solid red
@@ -48,12 +70,13 @@
         max-width: 500px
         margin: 0 auto
 
-        .dash 
+        &__divider 
             margin: 0px 0px 30px
             
         &__subtitle
             color: $cream-gold-color
             margin: 0px 0px 8px
+
         &__title
             color: rgb(34, 34, 34)
             margin: 0px 0px 8px
@@ -75,38 +98,32 @@
         background: white url(images/signature.png) no-repeat right bottom
         opacity: 0.2
     
-.second-section
-    background: $cream-light-color
+.feature-one
     padding: 50px 0px
+    background: $cream-light-color
 
     .cards
         display: flex
         flex-direction: row
         justify-content: space-around
         align-content: center
-        width: 100%
+        border: 1px solid red
 
         .card-food
-            flex-grow: 1
-            // border: 1px solid green
-            width: 100%
+            border: 1px solid green
             position: relative
 
             &__img
-                position: relative
+                // position: absolute
                 width: 100%
                 max-width: 500px
-                
-                
                 margin: auto
-
                 box-shadow: $shadow
 
         .card-text
-            flex-grow: 1
-            // border: 1px solid blue
+            border: 1px solid blue
             margin: auto
-            width: 100%
+            // width: 100%
             padding: 50px 50px
             
             &__title
@@ -119,24 +136,16 @@
             &__description
                 margin: 0px 0px 50px
 
-            @include for-size('tablets-portrait')
+            @include for-size-less('tablets-portrait')
                 flex-direction: column
                 padding: 50px 0px
 
-            @include for-size('phones')
-                flex-direction: column
-                padding: 50px 0px
-
-        @include for-size('tablets-portrait')
+        @include for-size-less('tablets-portrait')
             flex-direction: column
+        
+.benefits
 
-        @include for-size('phones')
-            flex-direction: column
-
-            
-.section-benefits
-
-    .benefits
+    .benefits-list
         display: grid
         grid-template-columns: 1fr 1fr 1fr
         grid-template-rows: 1fr 1fr
@@ -162,24 +171,17 @@
             &:nth-child(#{$benefits-cols-lg}n)
                 border-right: none
 
-            @include for-size('tablets-portrait')
-                &:nth-child(n)
-                    border: none
+            @include for-size-less('tablets-portrait')
                 padding: 30px 0px
-
-            @include for-size('phones')
                 &:nth-child(n)
-                    border: none
-                padding: 30px 0px
+                    border: none    
 
-        @include for-size('tablets-portrait')
+        @include for-size-less('tablets-portrait')
             grid-template-columns: 1fr
             grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr
 
         @include for-size('phones')
             margin: 50px auto
-            grid-template-columns: 1fr
-            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr
             padding: 0
 
 
