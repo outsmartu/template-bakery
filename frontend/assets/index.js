@@ -1,7 +1,7 @@
 (function(){
     setInterval(function(){
         next()
-    }, 7000)
+    }, 10 * 1000)
 }())
 
 
