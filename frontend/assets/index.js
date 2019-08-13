@@ -1,3 +1,10 @@
+(function(){
+    setInterval(function(){
+        next()
+    }, 7000)
+}())
+
+
 var currentSlide = 1,
     n = 3,
     offset = 100

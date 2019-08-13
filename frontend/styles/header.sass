@@ -168,8 +168,14 @@ header
                 &:nth-child(2)
                     @include header-bg-stretch(#C6C8D5, url(images/bg-1.jpg))
 
+                    .btn
+                        background-color: #A2AAB1
+
                 &:last-child
                     @include header-bg-stretch(#6D7783, url(images/bg-3.jpg))
+
+                    .btn
+                        background-color: #111111
 
                     .header__template, .header__template-name
                         color: white
@@ -194,7 +200,7 @@ header
         display: flex
         flex-direction: column
         justify-content: center
-
+        z-index: -100
         overflow: hidden
         
         
