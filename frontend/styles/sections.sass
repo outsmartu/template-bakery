@@ -106,23 +106,44 @@
         flex-direction: row
         justify-content: space-around
         align-content: center
-        border: 1px solid red
+        // border: 1px solid red
 
         .card-food
-            border: 1px solid green
+            // border: 1px solid green
             position: relative
+            vertical-align: middle
+            // margin-left: 50px
+            margin-top: -100px
+            margin-bottom: -100px
 
             &__img
-                // position: absolute
-                width: 100%
-                max-width: 500px
-                margin: auto
+                // position: relative
+                // width: 100%
+                max-width: 550px
+                margin: 0 auto
                 box-shadow: $shadow
 
+                @include for-size('laptops')
+                    max-width: 450px
+
+                @include for-size('tablets-landscape')
+                    max-width: 320px
+
+                @include for-size-less('tablets-portrait')
+                    width: 100%
+
+            @include for-size('tablets-landscape')
+                margin: 0 auto
+
+            @include for-size-less('tablets-portrait')
+                margin-top: 0
+                margin-bottom: 0
+
         .card-text
-            border: 1px solid blue
+            display: inline-block
+            // border: 1px solid blue
             margin: auto
-            // width: 100%
+            width: 50%
             padding: 50px 50px
             
             &__title
@@ -135,9 +156,15 @@
             &__description
                 margin: 0px 0px 50px
 
+            @include for-size-less('tablets-landscape')
+                padding: 0px 50px
+
             @include for-size-less('tablets-portrait')
                 flex-direction: column
                 padding: 50px 0px
+
+            @include for-size-less('tablets-portrait')
+                width: 100%
 
         @include for-size-less('tablets-portrait')
             flex-direction: column
