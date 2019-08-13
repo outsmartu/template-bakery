@@ -13,40 +13,32 @@
     @media screen and (max-width: $tablet-portrait-up)
         max-width: $phone-up - 30px
     
-.first-section
-    // display: none
+.introduction
     position: relative
     padding: 150px 0px
-    font-size: 14px
     
     .description
-        margin: 0 auto
         max-width: 500px
-        // border: 1px solid blue
+        margin: 0 auto
 
-        hr
-            border: 0
-            height: 4px
-            width: 40px
-            background: $cream-gold-color
+        .dash 
             margin: 0px 0px 30px
+            
         &__subtitle
             color: $cream-gold-color
             margin: 0px 0px 8px
-        &__main-title
+        &__title
             color: rgb(34, 34, 34)
             margin: 0px 0px 8px
 
-        @media screen and (min-width: $desktop-up)
-            max-width: 500px
-        @media screen and (min-width: $tablet-landscape-up) and (max-width: $desktop-up)
+        @include for-size('tablets-landscape')
             max-width: 560px
-        @media screen and (min-width: $tablet-portrait-up) and (max-width: $tablet-landscape-up)
+
+        @include for-size('tablets-portrait')
             max-width: 420px
-        @media screen and (min-width: $phone-up) and  (max-width: $tablet-portrait-up)
+
+        @include for-size('phones')
             max-width: 540px
-        @media screen and (max-width: $phone-up)
-            // color: red
 
     @include for-size('phones')
         padding: 75px 0px
