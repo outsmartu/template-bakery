@@ -1,50 +1,56 @@
 'use strict';
 
-const gulp = require('gulp');
-const sass = require('gulp-sass');
-const sourcemaps = require('gulp-sourcemaps');
-const del = require('del');
-const { series, parallel } = gulp;
-sass.compiler = require('node-sass');
-const browserSync = require('browser-sync').create();
+const gulp = require('gulp'),
+    sass = require('gulp-sass'),
+    sourcemaps = require('gulp-sourcemaps'),
+    del = require('del'),
+    { series, parallel } = gulp,
+    browserSync = require('browser-sync').create()
 
-const isDev = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
-const outputDir = 'docs'
+sass.compiler = require('node-sass')
 
-gulp.task('sass', function () {
+
+const isDev = !process.env.NODE_ENV || process.env.NODE_ENV == 'dev'
+
+const paths = {
+    releaseDir: 'docs',
+    prodDir: 'docs',
+    devDir: 'docs'
+}
+
+function processSass() {
     return gulp.src('frontend/styles/main.sass')
-    .pipe(sourcemaps.init())
-    .pipe(sass())
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest(outputDir));
-});
+        .pipe(sourcemaps.init())
+        .pipe(sass())
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(paths.devDir))
+}
 
-gulp.task('clean', function(){
-    return del(outputDir);
-});
+function clean() {
+    return del(paths.devDir)
+}
 
-gulp.task('assets', function(){
-    return gulp.src('frontend/assets/**', {since: gulp.lastRun('assets')})
-        .pipe(gulp.dest(outputDir));
-});
+function assets() {
+    return gulp.src('frontend/assets/**', { since: gulp.lastRun(assets) })
+        .pipe(gulp.dest(paths.devDir))
+}
 
-gulp.task('build', series(
-    'clean',
-    parallel('assets', 'sass')
-));
+function watch() {
+    gulp.watch('frontend/styles/**/*.*', series(processSass));
+    gulp.watch('frontend/assets/**/*.*', series(assets))
+}
 
-gulp.task('watch', function(){
-    gulp.watch('frontend/styles/**/*.*', series('sass'));
-    gulp.watch('frontend/assets/**/*.*', series('assets'));
-});
-
-gulp.task('enable-browser-sync', function(){
+function enableBrowserSync() {
     browserSync.init({
-        server: outputDir
+        server: paths.devDir
     });
 
-    browserSync.watch(`${outputDir}/**/*.*`).on('change', browserSync.reload);
-});
+    browserSync.watch(`${paths.devDir}/**/*.*`).on('change', browserSync.reload)
+}
 
+function cleanProd() {
+    return del(paths.prodDir)
+}
 
-gulp.task('dev', series('build', parallel('watch', 'enable-browser-sync')));
+exports.dev = series(series(clean, parallel(assets, processSass)), parallel(watch, enableBrowserSync))
+exports.prod = series(cleanProd)
