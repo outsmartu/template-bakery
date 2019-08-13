@@ -9,19 +9,29 @@ function calcOffset(slideToShow) {
 }
 
 function prev() {
-    currentSlide = currentSlide == 1 ? n : --currentSlide
-    showSlide(currentSlide)
+    prevSlide = currentSlide == 1 ? n : currentSlide - 1
+    goToSlide(prevSlide)
 }
 
 function next() {
-    currentSlide = currentSlide == n ? 1 : ++currentSlide
-    showSlide(currentSlide)
+    nextSlide = currentSlide == n ? 1 : currentSlide + 1
+    goToSlide(nextSlide)
 }
 
 function showSlide(index) {
     let slides = document.body.getElementsByClassName('slides')[0],
         currentOffset = calcOffset(index)
     slides.style.left = -currentOffset + '%'
+    currentSlide = index
+}
+
+function goToSlide(index) {
+    dashes = document.getElementsByClassName('slider__link')
+
+    dashes[currentSlide - 1].classList.toggle('slider__link_active')
+    dashes[index - 1].classList.toggle('slider__link_active')
+
+    showSlide(index)
 }
 
 let collapsed = true

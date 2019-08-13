@@ -152,6 +152,9 @@ header
                 width: 100vw
                 height: 100vh
 
+                // .wheat
+                //     margin: 0px 0px 20px
+
                 @mixin header-bg-stretch($bg-color, $bg-image)
                     background: $bg-color $bg-image center center/100% auto no-repeat scroll
             
@@ -164,11 +167,17 @@ header
                     .header__template, .header__template-name
                         color: white
 
+                    .wheat
+                        fill:  white
+
                 &:nth-child(3)
                     @include header-bg-stretch(#6D7783, url(images/bg-3.jpg))
 
                     .header__template, .header__template-name
                         color: white
+
+                    .wheat
+                        fill: white
 
                 .header__template
                     margin: 0px 0px 18px
@@ -197,8 +206,8 @@ header
         display: flex
         justify-content: center
         position: absolute
-        bottom: 50px
-        left: 50px
+        bottom: 10px
+        left: 30px
         margin: 0
         list-style-type: none
 
