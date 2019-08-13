@@ -1,5 +1,32 @@
 @import './vars';
 
+@mixin for-size($device-name)
+
+    $phones_upper: 576px
+    $tablets_portrait_upper: 786px
+    $tablets_landscape_upper: 992px
+    $laptops_upper: 1230px
+
+    @if $device-name == 'phones'
+        @media screen and (max-width: $phones_upper - 1)
+            @content
+
+    @else if $device-name == 'tablets-portrait'
+        @media screen and (min-width: $phones_upper) and (max-width: $tablets_portrait_upper - 1)
+            @content
+
+    @else if $device-name == 'tablets-landscape'
+        @media screen and (min-width: $tablets_portrait_upper) and (max-width: $tablets_landscape_upper - 1)
+            @content
+
+    @else if $device-name == 'laptops'
+        @media screen and (min-width: $tablets_landscape_upper) and (max-width: $laptops_upper - 1)
+            @content
+
+    @else if $device-name == 'desktops'
+        @media screen and (min-width: $laptops_upper)
+            @content
+
 .wrapper
     margin: 0 auto
     // border: 1px solid red
@@ -47,31 +74,6 @@
         @extend %bg-image
         background: white url(images/signature.png) no-repeat right bottom
         opacity: 0.2
-            
-
-@mixin for-size($device-name)
-
-    $phones-upper: 576px;
-
-    @if $device-name == 'phones'
-        @media screen and (max-width: 575px)
-            @content
-
-    @else if $device-name == 'tablets-portrait'
-        @media screen and (min-width: 576px) and (max-width: 785px)
-            @content
-
-    @else if $device-name == 'tablets-landscape'
-        @media screen and (min-width: 786px) and (max-width: 991px)
-            @content
-
-    @else if $device-name == 'laptops'
-        @media screen and (min-width: 992px) and (max-width: 1229px)
-            @content
-
-    @else if $device-name == 'desktops'
-        @media screen and (min-width: 1230px)
-            @content
     
 .second-section
     background: $cream-light-color
